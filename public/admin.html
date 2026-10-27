@@ -1,12 +1,12 @@
-
+﻿
 <!DOCTYPE html>
 <html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="color-scheme" content="light">
-  <title>Espace secrétaire | FVA</title>
-  <link rel="icon" type="image/png" href="/favicon-admin.png">
+  <title>Espace secrÃ©taire | FVA</title>
+  <link rel="icon" type="image/png" href=/assets/favicon-admin.png">
 
   <style>
     :root {
@@ -453,8 +453,8 @@
       .filter-actions button { flex: 1 1 40%; }
     }
 
-    /* Téléphone : les dossiers deviennent des cartes.
-       Ces règles sont réservées à l'affichage écran, pas à l'impression. */
+    /* TÃ©lÃ©phone : les dossiers deviennent des cartes.
+       Ces rÃ¨gles sont rÃ©servÃ©es Ã  l'affichage Ã©cran, pas Ã  l'impression. */
     @media screen and (max-width: 640px) {
       body { font-size: 14px; }
 
@@ -711,18 +711,18 @@
         >
         <div class="brand-copy">
           <h1>Further Vision Academy</h1>
-          <p>Espace de gestion des préinscriptions</p>
+          <p>Espace de gestion des prÃ©inscriptions</p>
         </div>
       </div>
-      <div class="private-label">ESPACE PRIVÉ · SECRÉTARIAT</div>
+      <div class="private-label">ESPACE PRIVÃ‰ Â· SECRÃ‰TARIAT</div>
     </div>
   </header>
 
   <main>
     <section class="panel login-wrap" id="loginPanel">
       <div class="login-intro">
-        <h2>Connexion secrétaire</h2>
-        <p>Connectez-vous pour consulter et exporter les demandes de préinscription.</p>
+        <h2>Connexion secrÃ©taire</h2>
+        <p>Connectez-vous pour consulter et exporter les demandes de prÃ©inscription.</p>
       </div>
 
       <form id="loginForm" accept-charset="UTF-8">
@@ -743,22 +743,22 @@
     <section id="dashboard" class="hidden">
       <div class="stats">
         <div class="stat">
-          <span class="stat-label">Total chargé</span>
+          <span class="stat-label">Total chargÃ©</span>
           <strong class="stat-value" id="totalStat">0</strong>
           <div class="stat-accent"></div>
         </div>
         <div class="stat">
-          <span class="stat-label">Particuliers chargés</span>
+          <span class="stat-label">Particuliers chargÃ©s</span>
           <strong class="stat-value" id="individualStat">0</strong>
           <div class="stat-accent"></div>
         </div>
         <div class="stat">
-          <span class="stat-label">Entreprises chargées</span>
+          <span class="stat-label">Entreprises chargÃ©es</span>
           <strong class="stat-value" id="businessStat">0</strong>
           <div class="stat-accent"></div>
         </div>
         <div class="stat">
-          <span class="stat-label">Résultats filtrés</span>
+          <span class="stat-label">RÃ©sultats filtrÃ©s</span>
           <strong class="stat-value" id="filteredStat">0</strong>
           <div class="stat-accent"></div>
         </div>
@@ -767,19 +767,19 @@
       <section class="panel">
         <div class="section-heading">
           <div>
-            <h2>Liste des préinscriptions</h2>
-            <p>Recherchez, filtrez, imprimez ou exportez les dossiers enregistrés.</p>
+            <h2>Liste des prÃ©inscriptions</h2>
+            <p>Recherchez, filtrez, imprimez ou exportez les dossiers enregistrÃ©s.</p>
           </div>
           <button class="btn-danger no-print" id="logoutButton" type="button">
-            Se déconnecter
+            Se dÃ©connecter
           </button>
         </div>
 
         <div class="filters no-print">
           <div>
-            <label for="search">Recherche générale</label>
+            <label for="search">Recherche gÃ©nÃ©rale</label>
             <input id="search" type="search"
-                   placeholder="Nom, téléphone, formation, e-mail…">
+                   placeholder="Nom, tÃ©lÃ©phone, formation, e-mailâ€¦">
           </div>
           <div>
             <label for="typeFilter">Type de dossier</label>
@@ -790,7 +790,7 @@
             </select>
           </div>
           <div>
-            <label for="fromDate">Date de début</label>
+            <label for="fromDate">Date de dÃ©but</label>
             <input id="fromDate" type="date">
           </div>
           <div>
@@ -800,9 +800,9 @@
         </div>
 
         <div class="filter-actions no-print">
-          <button id="refreshButton" type="button">↻ Actualiser</button>
+          <button id="refreshButton" type="button">â†» Actualiser</button>
           <button id="resetButton" class="btn-light" type="button">
-            Réinitialiser les filtres
+            RÃ©initialiser les filtres
           </button>
         </div>
 
@@ -810,19 +810,19 @@
 
         <div class="export-panel no-print">
           <div class="export-copy">
-            <strong>Exporter les dossiers sélectionnés</strong>
-            <span>Les téléchargements utilisent les filtres actuellement appliqués.</span>
+            <strong>Exporter les dossiers sÃ©lectionnÃ©s</strong>
+            <span>Les tÃ©lÃ©chargements utilisent les filtres actuellement appliquÃ©s.</span>
           </div>
           <div class="export-buttons">
-            <button id="csvButton" class="btn-light" type="button">↓ CSV</button>
-            <button id="xlsxButton" class="btn-light" type="button">↓ Excel (.xlsx)</button>
-            <button id="pdfButton" class="btn-cyan" type="button">↓ PDF</button>
+            <button id="csvButton" class="btn-light" type="button">â†“ CSV</button>
+            <button id="xlsxButton" class="btn-light" type="button">â†“ Excel (.xlsx)</button>
+            <button id="pdfButton" class="btn-cyan" type="button">â†“ PDF</button>
             <button id="printButton" type="button">Imprimer</button>
           </div>
         </div>
 
         <div class="results-heading">
-          <h3>Résultats</h3>
+          <h3>RÃ©sultats</h3>
           <span class="count" id="count">0 dossier</span>
         </div>
 
@@ -833,10 +833,10 @@
                 <th>Date d'inscription</th>
                 <th>Type</th>
                 <th>Nom / Contact</th>
-                <th>Téléphone</th>
+                <th>TÃ©lÃ©phone</th>
                 <th>E-mail</th>
                 <th>Formation / Besoin</th>
-                <th>Détails</th>
+                <th>DÃ©tails</th>
               </tr>
             </thead>
             <tbody id="recordsBody">
@@ -850,7 +850,7 @@
     </section>
 
     <footer class="footer">
-      Further Vision Academy · Espace privé de gestion des préinscriptions
+      Further Vision Academy Â· Espace privÃ© de gestion des prÃ©inscriptions
     </footer>
   </main>
 
@@ -872,10 +872,10 @@
       { key: "createdAt", label: "Date d'inscription" },
       { key: "type", label: "Type" },
       { key: "name", label: "Nom / Contact" },
-      { key: "phone", label: "Téléphone" },
+      { key: "phone", label: "TÃ©lÃ©phone" },
       { key: "email", label: "E-mail" },
       { key: "formation", label: "Formation / Besoin" },
-      { key: "details", label: "Détails" }
+      { key: "details", label: "DÃ©tails" }
     ];
 
     function showMessage(element, message, isError = false) {
@@ -884,7 +884,7 @@
     }
 
     function safeText(value) {
-      if (value === null || value === undefined || value === "") return "—";
+      if (value === null || value === undefined || value === "") return "â€”";
       return String(value);
     }
 
@@ -912,7 +912,7 @@
       try {
         result = await response.json();
       } catch {
-        throw new Error("Réponse inattendue du serveur. Vérifiez le Worker.");
+        throw new Error("RÃ©ponse inattendue du serveur. VÃ©rifiez le Worker.");
       }
 
       if (!response.ok || result.success !== true) {
@@ -945,7 +945,7 @@
     }
 
     function formatDate(value) {
-      if (!value) return "—";
+      if (!value) return "â€”";
 
       const parsed = new Date(value);
       if (Number.isNaN(parsed.getTime())) return String(value);
@@ -1009,8 +1009,8 @@
         cell.colSpan = columns.length;
         cell.className = "empty";
         cell.textContent = allRecords.length
-          ? "Aucun dossier ne correspond à ces critères."
-          : "Aucune préinscription enregistrée pour le moment.";
+          ? "Aucun dossier ne correspond Ã  ces critÃ¨res."
+          : "Aucune prÃ©inscription enregistrÃ©e pour le moment.";
 
         row.appendChild(cell);
         recordsBody.appendChild(row);
@@ -1026,7 +1026,7 @@
           const cell = document.createElement("td");
           const rawValue = record[column.key];
 
-          /* Ce libellé est utilisé pour la présentation en cartes sur téléphone. */
+          /* Ce libellÃ© est utilisÃ© pour la prÃ©sentation en cartes sur tÃ©lÃ©phone. */
           cell.dataset.label = column.label;
 
           cell.textContent = index === 0
@@ -1057,13 +1057,13 @@
 
       const refreshButton = document.getElementById("refreshButton");
       refreshButton.disabled = true;
-      showMessage(statusBox, "Chargement des préinscriptions…");
+      showMessage(statusBox, "Chargement des prÃ©inscriptionsâ€¦");
 
       try {
         const result = await api("/api/admin/data", { method: "GET" });
         allRecords = Array.isArray(result.records) ? result.records : [];
         renderRecords();
-        showMessage(statusBox, "Liste actualisée avec succès.");
+        showMessage(statusBox, "Liste actualisÃ©e avec succÃ¨s.");
       } catch (error) {
         showMessage(statusBox, error.message, true);
       } finally {
@@ -1077,7 +1077,7 @@
 
       const button = document.getElementById("loginButton");
       button.disabled = true;
-      showMessage(loginMessage, "Connexion en cours…");
+      showMessage(loginMessage, "Connexion en coursâ€¦");
 
       try {
         await api("/api/admin/login", {
@@ -1114,7 +1114,7 @@
       document.getElementById("toDate").value = "";
 
       renderRecords();
-      showMessage(statusBox, "Filtres réinitialisés.");
+      showMessage(statusBox, "Filtres rÃ©initialisÃ©s.");
     });
 
     function exportRows() {
@@ -1134,7 +1134,7 @@
       const to = document.getElementById("toDate").value;
 
       if (from && to) return "Du " + from + " au " + to;
-      if (from) return "À partir du " + from;
+      if (from) return "Ã€ partir du " + from;
       if (to) return "Jusqu'au " + to;
       return "Toutes les dates";
     }
@@ -1178,7 +1178,7 @@
       const rows = exportRows();
 
       if (!rows.length) {
-        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        showMessage(statusBox, "Aucun dossier Ã  exporter.", true);
         return;
       }
 
@@ -1192,20 +1192,20 @@
       });
 
       downloadBlob(blob, getExportFilename("csv"));
-      showMessage(statusBox, rows.length + " dossier(s) exporté(s) en CSV.");
+      showMessage(statusBox, rows.length + " dossier(s) exportÃ©(s) en CSV.");
     });
 
     document.getElementById("xlsxButton").addEventListener("click", () => {
       const rows = exportRows();
 
       if (!rows.length) {
-        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        showMessage(statusBox, "Aucun dossier Ã  exporter.", true);
         return;
       }
 
       if (!window.XLSX) {
         showMessage(statusBox,
-          "La bibliothèque Excel n'a pas pu être chargée. Vérifiez votre connexion Internet puis réessayez.",
+          "La bibliothÃ¨que Excel n'a pas pu Ãªtre chargÃ©e. VÃ©rifiez votre connexion Internet puis rÃ©essayez.",
           true);
         return;
       }
@@ -1229,13 +1229,13 @@
 
         worksheet["!freeze"] = { xSplit: 0, ySplit: 1 };
 
-        XLSX.utils.book_append_sheet(workbook, worksheet, "Préinscriptions");
+        XLSX.utils.book_append_sheet(workbook, worksheet, "PrÃ©inscriptions");
         XLSX.writeFile(workbook, getExportFilename("xlsx"));
 
-        showMessage(statusBox, rows.length + " dossier(s) exporté(s) en Excel.");
+        showMessage(statusBox, rows.length + " dossier(s) exportÃ©(s) en Excel.");
       } catch (error) {
         showMessage(statusBox,
-          "Impossible de créer le fichier Excel : " + error.message, true);
+          "Impossible de crÃ©er le fichier Excel : " + error.message, true);
       }
     });
 
@@ -1243,13 +1243,13 @@
       const records = getFilteredRecords();
 
       if (!records.length) {
-        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        showMessage(statusBox, "Aucun dossier Ã  exporter.", true);
         return;
       }
 
       if (!window.jspdf || !window.jspdf.jsPDF) {
         showMessage(statusBox,
-          "La bibliothèque PDF n'a pas pu être chargée. Vérifiez votre connexion Internet puis réessayez.",
+          "La bibliothÃ¨que PDF n'a pas pu Ãªtre chargÃ©e. VÃ©rifiez votre connexion Internet puis rÃ©essayez.",
           true);
         return;
       }
@@ -1270,15 +1270,15 @@
 
         doc.setFontSize(12);
         doc.setTextColor(45, 61, 64);
-        doc.text("Liste des préinscriptions", 14, 24);
+        doc.text("Liste des prÃ©inscriptions", 14, 24);
 
         doc.setFont("helvetica", "normal");
         doc.setFontSize(9);
-        doc.text("Période : " + getPeriodLabel(), 14, 31);
+        doc.text("PÃ©riode : " + getPeriodLabel(), 14, 31);
         doc.text("Dossiers : " + records.length, 14, 36);
 
         doc.text(
-          "Édité le : " + new Intl.DateTimeFormat("fr-FR", {
+          "Ã‰ditÃ© le : " + new Intl.DateTimeFormat("fr-FR", {
             dateStyle: "short",
             timeStyle: "short"
           }).format(new Date()),
@@ -1349,10 +1349,10 @@
         });
 
         doc.save(getExportFilename("pdf"));
-        showMessage(statusBox, records.length + " dossier(s) exporté(s) en PDF.");
+        showMessage(statusBox, records.length + " dossier(s) exportÃ©(s) en PDF.");
       } catch (error) {
         showMessage(statusBox,
-          "Impossible de créer le PDF : " + error.message, true);
+          "Impossible de crÃ©er le PDF : " + error.message, true);
       }
     }
 
@@ -1362,7 +1362,7 @@
       const records = getFilteredRecords();
 
       if (!records.length) {
-        showMessage(statusBox, "Aucun dossier à imprimer.", true);
+        showMessage(statusBox, "Aucun dossier Ã  imprimer.", true);
         return;
       }
 
@@ -1394,7 +1394,7 @@
       });
 
       recordsBody.replaceChildren(...printRows);
-      document.title = "FVA - Liste des préinscriptions - " + getFileDate();
+      document.title = "FVA - Liste des prÃ©inscriptions - " + getFileDate();
 
       const restoreTable = () => {
         renderRecords();
@@ -1416,16 +1416,17 @@
           body: "{}"
         });
       } catch (error) {
-        // Masquer l'espace privé localement même si la requête échoue.
+        // Masquer l'espace privÃ© localement mÃªme si la requÃªte Ã©choue.
       } finally {
         allRecords = [];
         recordsBody.replaceChildren();
         dashboard.classList.add("hidden");
         loginPanel.classList.remove("hidden");
-        showMessage(loginMessage, "Vous êtes déconnectée.");
+        showMessage(loginMessage, "Vous Ãªtes dÃ©connectÃ©e.");
         button.disabled = false;
       }
     });
   </script>
 </body>
 </html>
+
