@@ -1,0 +1,13 @@
+name = "fva-preinscription"
+main = "src/index.js"
+compatibility_date = "2026-10-21"
+
+[assets]
+directory = "./public"
+binding = "ASSETS"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "fva-preinscriptions"
+database_id = "e7b56799-6473-48e1-a9e4-f9389629498e"
+migrations_dir = "migrations"

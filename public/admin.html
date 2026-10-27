@@ -1,0 +1,1431 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Espace secrétaire | FVA</title>
+  <link rel="icon" type="image/png" href="/favicon-admin.png">
+
+  <style>
+    :root {
+      --petrol: #01474F;
+      --cyan: #00CCFF;
+      --bg: #F3F7F8;
+      --white: #FFFFFF;
+      --text: #24383B;
+      --muted: #687C80;
+      --border: #DCE6E8;
+      --soft: #EAF7F9;
+      --green: #18794E;
+      --red: #B42318;
+      --shadow: 0 4px 18px rgba(1, 71, 79, .06);
+    }
+
+    * { box-sizing: border-box; }
+
+    html { -webkit-text-size-adjust: 100%; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      font-size: 14px;
+      line-height: 1.5;
+    }
+
+    button, input, select { font: inherit; }
+    button { -webkit-tap-highlight-color: transparent; }
+
+    .topbar {
+      background: var(--petrol);
+      color: white;
+      border-bottom: 4px solid var(--cyan);
+    }
+
+    .topbar-inner {
+      max-width: 1450px;
+      margin: auto;
+      padding: 22px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 0;
+    }
+
+         .brand-logo {
+      display: block;
+      width: 58px;
+      height: 58px;
+      flex: 0 0 58px;
+      object-fit: contain;
+      object-position: center;
+    }
+
+    .brand-copy { min-width: 0; }
+
+    .brand h1 {
+      margin: 0;
+      font-size: 21px;
+      line-height: 1.3;
+      overflow-wrap: anywhere;
+    }
+
+    .brand p {
+      margin: 4px 0 0;
+      color: #D5E9EB;
+      font-size: 13px;
+    }
+
+    .private-label {
+      padding: 7px 11px;
+      border: 1px solid rgba(255,255,255,.25);
+      border-radius: 5px;
+      color: #EAFBFF;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+
+    main {
+      width: min(1450px, 100%);
+      margin: 28px auto;
+      padding: 0 24px;
+    }
+
+    .panel {
+      min-width: 0;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 24px;
+      margin-bottom: 22px;
+      box-shadow: var(--shadow);
+    }
+
+    h2 {
+      margin: 0;
+      color: var(--petrol);
+      font-size: 20px;
+      line-height: 1.4;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 7px;
+      color: #334C50;
+      font-weight: 700;
+      font-size: 13px;
+    }
+
+    input, select {
+      display: block;
+      width: 100%;
+      min-width: 0;
+      min-height: 43px;
+      padding: 10px 12px;
+      color: var(--text);
+      background: white;
+      border: 1px solid #C9D7DA;
+      border-radius: 5px;
+      outline: none;
+    }
+
+    input:focus, select:focus {
+      border-color: var(--petrol);
+      box-shadow: 0 0 0 3px rgba(0,204,255,.17);
+    }
+
+    button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 41px;
+      padding: 10px 14px;
+      border: 1px solid transparent;
+      border-radius: 5px;
+      background: var(--petrol);
+      color: white;
+      font-weight: 700;
+      cursor: pointer;
+      transition: background .15s, transform .15s;
+    }
+
+    button:hover:not(:disabled) { background: #02616B; }
+    button:active:not(:disabled) { transform: translateY(1px); }
+    button:disabled { opacity: .6; cursor: wait; }
+
+    .btn-cyan {
+      background: var(--cyan);
+      color: #003A40;
+    }
+
+    .btn-cyan:hover:not(:disabled) { background: #62DEFF; }
+
+    .btn-light {
+      background: white;
+      color: var(--petrol);
+      border-color: #C9D7DA;
+    }
+
+    .btn-light:hover:not(:disabled) {
+      background: var(--soft);
+      color: var(--petrol);
+    }
+
+    .btn-danger {
+      background: #FFF2F0;
+      color: var(--red);
+      border-color: #F0C9C5;
+    }
+
+    .btn-danger:hover:not(:disabled) {
+      background: #FFE4E0;
+      color: var(--red);
+    }
+
+    .full-width { width: 100%; margin-top: 18px; }
+
+    .login-wrap {
+      max-width: 470px;
+      margin: 50px auto;
+    }
+
+    .login-intro {
+      margin-bottom: 22px;
+      padding-bottom: 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .login-intro p {
+      color: var(--muted);
+      margin: 8px 0 0;
+    }
+
+    .message {
+      margin: 13px 0 0;
+      padding: 10px 12px;
+      border-radius: 5px;
+      font-size: 13px;
+      overflow-wrap: anywhere;
+    }
+
+    .message:empty { display: none; }
+    .message.success { background: #EAF7EF; color: var(--green); }
+    .message.error { background: #FFF0EE; color: var(--red); }
+
+    .hidden { display: none !important; }
+
+    .section-heading {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 15px;
+      margin-bottom: 22px;
+    }
+
+    .section-heading p {
+      margin: 6px 0 0;
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      margin-bottom: 22px;
+    }
+
+    .stat {
+      min-width: 0;
+      background: white;
+      padding: 19px;
+      border: 1px solid var(--border);
+      border-radius: 9px;
+      box-shadow: var(--shadow);
+    }
+
+    .stat-label {
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: .35px;
+    }
+
+    .stat-value {
+      display: block;
+      margin-top: 8px;
+      color: var(--petrol);
+      font-size: 30px;
+      line-height: 1.2;
+      font-weight: 800;
+      overflow-wrap: anywhere;
+    }
+
+    .stat-accent {
+      width: 35px;
+      height: 3px;
+      background: var(--cyan);
+      margin-top: 12px;
+      border-radius: 3px;
+    }
+
+    .filters {
+      display: grid;
+      grid-template-columns: minmax(220px, 2fr) repeat(3, minmax(130px, 1fr));
+      gap: 14px;
+      align-items: end;
+    }
+
+    .filter-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 9px;
+      margin-top: 17px;
+    }
+
+    .filter-actions button { min-height: 39px; }
+
+    .export-panel {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 23px;
+      padding: 17px;
+      background: #F5FAFB;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+    }
+
+    .export-copy { min-width: 0; }
+    .export-copy strong { display: block; color: var(--petrol); }
+
+    .export-copy span {
+      display: block;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .export-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+    }
+
+    .results-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin: 22px 0 13px;
+    }
+
+    .results-heading h3 {
+      margin: 0;
+      color: var(--petrol);
+      font-size: 16px;
+    }
+
+    .count {
+      padding: 6px 10px;
+      background: var(--soft);
+      color: var(--petrol);
+      border-radius: 5px;
+      font-size: 12px;
+      font-weight: 700;
+    }
+
+    .table-wrap {
+      overflow: auto;
+      max-height: 68vh;
+      border: 1px solid var(--border);
+      border-radius: 7px;
+    }
+
+    table {
+      width: 100%;
+      min-width: 1000px;
+      border-collapse: separate;
+      border-spacing: 0;
+      background: white;
+      font-size: 13px;
+    }
+
+    thead th {
+      position: sticky;
+      top: 0;
+      z-index: 1;
+      padding: 13px 12px;
+      text-align: left;
+      color: var(--petrol);
+      background: #EAF4F5;
+      border-bottom: 2px solid #C9E3E7;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: .2px;
+      white-space: nowrap;
+    }
+
+    tbody td {
+      padding: 12px;
+      border-bottom: 1px solid #E7EDEF;
+      vertical-align: top;
+      overflow-wrap: anywhere;
+      max-width: 260px;
+    }
+
+    tbody tr:nth-child(even) { background: #F8FBFC; }
+    tbody tr:hover { background: #EDF9FB; }
+    tbody tr:last-child td { border-bottom: 0; }
+
+    .type-tag {
+      display: inline-block;
+      padding: 5px 8px;
+      border-radius: 4px;
+      background: #E2F7FC;
+      color: var(--petrol);
+      font-size: 11px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .type-tag.entreprise {
+      background: #E9EAFE;
+      color: #373D8B;
+    }
+
+    .empty {
+      padding: 35px !important;
+      text-align: center;
+      color: var(--muted);
+    }
+
+    .footer {
+      padding: 8px 0 24px;
+      text-align: center;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* Tablette : adaptation progressive */
+    @media screen and (max-width: 900px) {
+      .stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .filters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .topbar-inner { padding: 18px; }
+      main { padding: 0 16px; }
+    }
+
+    @media screen and (max-width: 520px) {
+      .brand h1 { font-size: 17px; }
+      .brand p { font-size: 12px; }
+      .private-label { display: none; }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
+
+      main { margin-top: 17px; padding: 0 11px; }
+      .panel { padding: 16px; }
+      .stats { gap: 10px; }
+      .stat { padding: 13px; }
+      .stat-value { font-size: 25px; }
+      .filters { grid-template-columns: minmax(0, 1fr); }
+      .section-heading { flex-direction: column; }
+      .export-panel { align-items: stretch; }
+      .export-buttons { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .export-buttons button { width: 100%; min-width: 0; padding: 10px 7px; font-size: 12px; }
+      .filter-actions button { flex: 1 1 40%; }
+    }
+
+    /* Téléphone : les dossiers deviennent des cartes.
+       Ces règles sont réservées à l'affichage écran, pas à l'impression. */
+    @media screen and (max-width: 640px) {
+      body { font-size: 14px; }
+
+      .topbar-inner {
+        padding: 15px 13px;
+        gap: 10px;
+      }
+
+      .brand { gap: 10px; min-width: 0; }
+      .brand-copy { min-width: 0; }
+      .brand h1 { font-size: 16px; overflow-wrap: anywhere; }
+      .brand p { font-size: 11px; line-height: 1.4; }
+
+      main {
+        width: 100%;
+        padding: 0 10px;
+        margin: 15px auto;
+      }
+
+      .panel { padding: 14px; border-radius: 8px; }
+      #loginPanel { margin: 25px auto; }
+      h2 { font-size: 18px; }
+
+      .stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .stat { padding: 12px; }
+      .stat-label { font-size: 10px; line-height: 1.4; }
+      .stat-value { font-size: 25px; }
+
+      .section-heading { gap: 12px; }
+      #logoutButton { width: 100%; }
+
+      .filters {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 13px;
+      }
+
+      input, select {
+        min-height: 46px;
+        font-size: 16px;
+      }
+
+      .filter-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 9px;
+      }
+
+      .filter-actions button {
+        width: 100%;
+        min-height: 44px;
+        margin: 0;
+      }
+
+      .export-panel { padding: 12px; gap: 13px; }
+
+      .export-buttons {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .export-buttons button {
+        width: 100%;
+        min-width: 0;
+        min-height: 44px;
+        padding: 9px 5px;
+        font-size: 12px;
+        white-space: normal;
+        overflow-wrap: anywhere;
+      }
+
+      .results-heading { align-items: flex-start; flex-wrap: wrap; }
+
+      .table-wrap {
+        overflow: visible;
+        max-height: none;
+        border: 0;
+        border-radius: 0;
+      }
+
+      #recordsTable {
+        display: block;
+        width: 100%;
+        min-width: 0;
+        font-size: 13px;
+        background: transparent;
+      }
+
+      #recordsTable thead { display: none; }
+
+      #recordsTable tbody {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      #recordsTable tbody tr {
+        display: block;
+        min-width: 0;
+        overflow: hidden;
+        background: #FFFFFF;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        box-shadow: 0 2px 8px rgba(1, 71, 79, .05);
+      }
+
+      #recordsTable tbody tr:nth-child(even),
+      #recordsTable tbody tr:hover {
+        background: #FFFFFF;
+      }
+
+      #recordsTable tbody td {
+        display: grid;
+        grid-template-columns: minmax(95px, 36%) minmax(0, 1fr);
+        align-items: start;
+        gap: 9px;
+        width: 100%;
+        max-width: none;
+        padding: 11px 10px;
+        border-bottom: 1px solid #E7EDEF;
+        overflow-wrap: anywhere;
+        word-break: normal;
+      }
+
+      #recordsTable tbody td::before {
+        content: attr(data-label);
+        color: var(--petrol);
+        font-size: 11px;
+        font-weight: 700;
+        line-height: 1.5;
+      }
+
+      #recordsTable tbody td:last-child { border-bottom: 0; }
+
+      #recordsTable tbody td.empty {
+        display: block;
+        padding: 24px 12px !important;
+        text-align: center;
+        border: 0;
+      }
+
+      #recordsTable tbody td.empty::before { content: none; }
+
+      .type-tag {
+        justify-self: start;
+        white-space: normal;
+      }
+
+      .message { overflow-wrap: anywhere; }
+      .footer { padding: 8px 10px 20px; }
+    }
+
+    @media print {
+      @page { size: A4 landscape; margin: 12mm; }
+
+      body { background: white; color: black; font-size: 9px; }
+
+      .topbar {
+        background: white !important;
+        color: black;
+        border-bottom: 2px solid #01474F;
+      }
+
+      .topbar-inner { padding: 0 0 12px; }
+      .brand h1 { color: #01474F; font-size: 17px; }
+      .brand p { color: #444; }
+
+      .brand-logo, .private-label, #loginPanel, .no-print, .stats {
+        display: none !important;
+      }
+
+      main {
+        width: 100%;
+        max-width: none;
+        margin: 12px 0 0;
+        padding: 0;
+      }
+
+      .panel { border: 0; box-shadow: none; padding: 0; margin: 0; }
+      .section-heading { margin-bottom: 10px; }
+      .section-heading h2 { font-size: 15px; }
+      .section-heading p { color: #333; }
+
+      .table-wrap {
+        display: block;
+        overflow: visible;
+        max-height: none;
+        border: 0;
+      }
+
+      #recordsTable {
+        display: table;
+        min-width: 0;
+        width: 100%;
+        font-size: 8px;
+      }
+
+      #recordsTable thead { display: table-header-group; }
+      #recordsTable tbody { display: table-row-group; }
+
+      #recordsTable tbody tr {
+        display: table-row;
+        overflow: visible;
+        border: 0;
+        border-radius: 0;
+        box-shadow: none;
+        break-inside: avoid;
+      }
+
+      #recordsTable tbody td {
+        display: table-cell;
+        width: auto;
+        max-width: none;
+        padding: 5px 4px;
+        border-bottom: 1px solid #E7EDEF;
+      }
+
+      #recordsTable tbody td::before { content: none !important; }
+
+      thead th {
+        position: static;
+        background: #EAF4F5 !important;
+        color: #01474F !important;
+      }
+
+      th, td { padding: 5px 4px; overflow-wrap: anywhere; }
+      tr { break-inside: avoid; }
+
+      tbody tr:nth-child(even) { background: #F5F7F7 !important; }
+      .type-tag { padding: 2px 4px; }
+      .results-heading { margin: 8px 0; }
+      .count { background: white; padding: 0; }
+      .footer { display: none; }
+    }
+  </style>
+
+  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf@2.5.2/dist/jspdf.umd.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf-autotable@3.8.4/dist/jspdf.plugin.autotable.min.js"></script>
+</head>
+
+<body>
+  <header class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <img
+          class="brand-logo"
+          src="/assets/logo-fva.png"
+          alt="Logo Further Vision Academy"
+        >
+        <div class="brand-copy">
+          <h1>Further Vision Academy</h1>
+          <p>Espace de gestion des préinscriptions</p>
+        </div>
+      </div>
+      <div class="private-label">ESPACE PRIVÉ · SECRÉTARIAT</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="panel login-wrap" id="loginPanel">
+      <div class="login-intro">
+        <h2>Connexion secrétaire</h2>
+        <p>Connectez-vous pour consulter et exporter les demandes de préinscription.</p>
+      </div>
+
+      <form id="loginForm" accept-charset="UTF-8">
+        <label for="username">Identifiant</label>
+        <input id="username" name="username" autocomplete="username" required>
+
+        <label for="password" style="margin-top:15px">Mot de passe</label>
+        <input id="password" name="password" type="password"
+               autocomplete="current-password" required>
+
+        <button class="full-width" id="loginButton" type="submit">
+          Se connecter
+        </button>
+        <p id="loginMessage" class="message" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="dashboard" class="hidden">
+      <div class="stats">
+        <div class="stat">
+          <span class="stat-label">Total chargé</span>
+          <strong class="stat-value" id="totalStat">0</strong>
+          <div class="stat-accent"></div>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Particuliers chargés</span>
+          <strong class="stat-value" id="individualStat">0</strong>
+          <div class="stat-accent"></div>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Entreprises chargées</span>
+          <strong class="stat-value" id="businessStat">0</strong>
+          <div class="stat-accent"></div>
+        </div>
+        <div class="stat">
+          <span class="stat-label">Résultats filtrés</span>
+          <strong class="stat-value" id="filteredStat">0</strong>
+          <div class="stat-accent"></div>
+        </div>
+      </div>
+
+      <section class="panel">
+        <div class="section-heading">
+          <div>
+            <h2>Liste des préinscriptions</h2>
+            <p>Recherchez, filtrez, imprimez ou exportez les dossiers enregistrés.</p>
+          </div>
+          <button class="btn-danger no-print" id="logoutButton" type="button">
+            Se déconnecter
+          </button>
+        </div>
+
+        <div class="filters no-print">
+          <div>
+            <label for="search">Recherche générale</label>
+            <input id="search" type="search"
+                   placeholder="Nom, téléphone, formation, e-mail…">
+          </div>
+          <div>
+            <label for="typeFilter">Type de dossier</label>
+            <select id="typeFilter">
+              <option value="">Tous les dossiers</option>
+              <option value="Particulier">Particuliers</option>
+              <option value="Entreprise">Entreprises</option>
+            </select>
+          </div>
+          <div>
+            <label for="fromDate">Date de début</label>
+            <input id="fromDate" type="date">
+          </div>
+          <div>
+            <label for="toDate">Date de fin</label>
+            <input id="toDate" type="date">
+          </div>
+        </div>
+
+        <div class="filter-actions no-print">
+          <button id="refreshButton" type="button">↻ Actualiser</button>
+          <button id="resetButton" class="btn-light" type="button">
+            Réinitialiser les filtres
+          </button>
+        </div>
+
+        <p id="status" class="message" role="status" aria-live="polite"></p>
+
+        <div class="export-panel no-print">
+          <div class="export-copy">
+            <strong>Exporter les dossiers sélectionnés</strong>
+            <span>Les téléchargements utilisent les filtres actuellement appliqués.</span>
+          </div>
+          <div class="export-buttons">
+            <button id="csvButton" class="btn-light" type="button">↓ CSV</button>
+            <button id="xlsxButton" class="btn-light" type="button">↓ Excel (.xlsx)</button>
+            <button id="pdfButton" class="btn-cyan" type="button">↓ PDF</button>
+            <button id="printButton" type="button">Imprimer</button>
+          </div>
+        </div>
+
+        <div class="results-heading">
+          <h3>Résultats</h3>
+          <span class="count" id="count">0 dossier</span>
+        </div>
+
+        <div class="table-wrap">
+          <table id="recordsTable">
+            <thead>
+              <tr>
+                <th>Date d'inscription</th>
+                <th>Type</th>
+                <th>Nom / Contact</th>
+                <th>Téléphone</th>
+                <th>E-mail</th>
+                <th>Formation / Besoin</th>
+                <th>Détails</th>
+              </tr>
+            </thead>
+            <tbody id="recordsBody">
+              <tr>
+                <td colspan="7" class="empty">Connectez-vous pour charger les dossiers.</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </section>
+
+    <footer class="footer">
+      Further Vision Academy · Espace privé de gestion des préinscriptions
+    </footer>
+  </main>
+
+  <script>
+    "use strict";
+
+    const loginPanel = document.getElementById("loginPanel");
+    const dashboard = document.getElementById("dashboard");
+    const loginForm = document.getElementById("loginForm");
+    const loginMessage = document.getElementById("loginMessage");
+    const statusBox = document.getElementById("status");
+    const recordsBody = document.getElementById("recordsBody");
+    const countBox = document.getElementById("count");
+
+    let allRecords = [];
+    let isLoading = false;
+
+    const columns = [
+      { key: "createdAt", label: "Date d'inscription" },
+      { key: "type", label: "Type" },
+      { key: "name", label: "Nom / Contact" },
+      { key: "phone", label: "Téléphone" },
+      { key: "email", label: "E-mail" },
+      { key: "formation", label: "Formation / Besoin" },
+      { key: "details", label: "Détails" }
+    ];
+
+    function showMessage(element, message, isError = false) {
+      element.textContent = message;
+      element.className = "message " + (isError ? "error" : "success");
+    }
+
+    function safeText(value) {
+      if (value === null || value === undefined || value === "") return "—";
+      return String(value);
+    }
+
+    function normalize(value) {
+      return String(value ?? "")
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "")
+        .toLocaleLowerCase("fr");
+    }
+
+    async function api(path, options = {}) {
+      const response = await fetch(path, {
+        credentials: "same-origin",
+        ...options,
+        headers: {
+          ...(options.headers || {}),
+          ...(options.body
+            ? { "Content-Type": "application/json; charset=UTF-8" }
+            : {})
+        }
+      });
+
+      let result;
+
+      try {
+        result = await response.json();
+      } catch {
+        throw new Error("Réponse inattendue du serveur. Vérifiez le Worker.");
+      }
+
+      if (!response.ok || result.success !== true) {
+        if (response.status === 401) {
+          loginPanel.classList.remove("hidden");
+          dashboard.classList.add("hidden");
+        }
+        throw new Error(result.error || "Une erreur est survenue.");
+      }
+
+      return result;
+    }
+
+    function getDateOnly(value) {
+      if (!value) return "";
+
+      const raw = String(value);
+      const match = raw.match(/^(\d{4}-\d{2}-\d{2})/);
+
+      if (match) return match[1];
+
+      const parsed = new Date(raw);
+      if (Number.isNaN(parsed.getTime())) return "";
+
+      return [
+        parsed.getFullYear(),
+        String(parsed.getMonth() + 1).padStart(2, "0"),
+        String(parsed.getDate()).padStart(2, "0")
+      ].join("-");
+    }
+
+    function formatDate(value) {
+      if (!value) return "—";
+
+      const parsed = new Date(value);
+      if (Number.isNaN(parsed.getTime())) return String(value);
+
+      return new Intl.DateTimeFormat("fr-FR", {
+        dateStyle: "short",
+        timeStyle: "short"
+      }).format(parsed);
+    }
+
+    function getFilteredRecords() {
+      const search = normalize(document.getElementById("search").value.trim());
+      const type = document.getElementById("typeFilter").value;
+      const from = document.getElementById("fromDate").value;
+      const to = document.getElementById("toDate").value;
+
+      return allRecords.filter(record => {
+        const haystack = normalize([
+          record.name,
+          record.phone,
+          record.email,
+          record.formation,
+          record.details,
+          record.type
+        ].join(" "));
+
+        const date = getDateOnly(record.createdAt);
+
+        return (!search || haystack.includes(search)) &&
+          (!type || record.type === type) &&
+          (!from || (date && date >= from)) &&
+          (!to || (date && date <= to));
+      });
+    }
+
+    function updateStats(filtered) {
+      document.getElementById("totalStat").textContent = allRecords.length;
+
+      document.getElementById("individualStat").textContent =
+        allRecords.filter(r => r.type === "Particulier").length;
+
+      document.getElementById("businessStat").textContent =
+        allRecords.filter(r => r.type === "Entreprise").length;
+
+      document.getElementById("filteredStat").textContent = filtered.length;
+    }
+
+    function renderRecords() {
+      const filtered = getFilteredRecords();
+      updateStats(filtered);
+
+      countBox.textContent =
+        filtered.length + (filtered.length > 1 ? " dossiers" : " dossier");
+
+      recordsBody.replaceChildren();
+
+      if (!filtered.length) {
+        const row = document.createElement("tr");
+        const cell = document.createElement("td");
+
+        cell.colSpan = columns.length;
+        cell.className = "empty";
+        cell.textContent = allRecords.length
+          ? "Aucun dossier ne correspond à ces critères."
+          : "Aucune préinscription enregistrée pour le moment.";
+
+        row.appendChild(cell);
+        recordsBody.appendChild(row);
+        return;
+      }
+
+      const fragment = document.createDocumentFragment();
+
+      for (const record of filtered) {
+        const row = document.createElement("tr");
+
+        columns.forEach((column, index) => {
+          const cell = document.createElement("td");
+          const rawValue = record[column.key];
+
+          /* Ce libellé est utilisé pour la présentation en cartes sur téléphone. */
+          cell.dataset.label = column.label;
+
+          cell.textContent = index === 0
+            ? formatDate(rawValue)
+            : safeText(rawValue);
+
+          if (index === 1 && rawValue) {
+            const tag = document.createElement("span");
+            tag.className = "type-tag" +
+              (rawValue === "Entreprise" ? " entreprise" : "");
+            tag.textContent = safeText(rawValue);
+            cell.replaceChildren(tag);
+          }
+
+          row.appendChild(cell);
+        });
+
+        fragment.appendChild(row);
+      }
+
+      recordsBody.appendChild(fragment);
+    }
+
+    async function loadRecords() {
+      if (isLoading) return;
+
+      isLoading = true;
+
+      const refreshButton = document.getElementById("refreshButton");
+      refreshButton.disabled = true;
+      showMessage(statusBox, "Chargement des préinscriptions…");
+
+      try {
+        const result = await api("/api/admin/data", { method: "GET" });
+        allRecords = Array.isArray(result.records) ? result.records : [];
+        renderRecords();
+        showMessage(statusBox, "Liste actualisée avec succès.");
+      } catch (error) {
+        showMessage(statusBox, error.message, true);
+      } finally {
+        isLoading = false;
+        refreshButton.disabled = false;
+      }
+    }
+
+    loginForm.addEventListener("submit", async event => {
+      event.preventDefault();
+
+      const button = document.getElementById("loginButton");
+      button.disabled = true;
+      showMessage(loginMessage, "Connexion en cours…");
+
+      try {
+        await api("/api/admin/login", {
+          method: "POST",
+          body: JSON.stringify({
+            username: document.getElementById("username").value.trim(),
+            password: document.getElementById("password").value
+          })
+        });
+
+        document.getElementById("password").value = "";
+        loginPanel.classList.add("hidden");
+        dashboard.classList.remove("hidden");
+        await loadRecords();
+      } catch (error) {
+        showMessage(loginMessage, error.message, true);
+      } finally {
+        button.disabled = false;
+      }
+    });
+
+    ["search", "typeFilter", "fromDate", "toDate"].forEach(id => {
+      document.getElementById(id).addEventListener("input", renderRecords);
+      document.getElementById(id).addEventListener("change", renderRecords);
+    });
+
+    document.getElementById("refreshButton")
+      .addEventListener("click", loadRecords);
+
+    document.getElementById("resetButton").addEventListener("click", () => {
+      document.getElementById("search").value = "";
+      document.getElementById("typeFilter").value = "";
+      document.getElementById("fromDate").value = "";
+      document.getElementById("toDate").value = "";
+
+      renderRecords();
+      showMessage(statusBox, "Filtres réinitialisés.");
+    });
+
+    function exportRows() {
+      return getFilteredRecords().map(record => [
+        safeText(record.createdAt),
+        safeText(record.type),
+        safeText(record.name),
+        safeText(record.phone),
+        safeText(record.email),
+        safeText(record.formation),
+        safeText(record.details)
+      ]);
+    }
+
+    function getPeriodLabel() {
+      const from = document.getElementById("fromDate").value;
+      const to = document.getElementById("toDate").value;
+
+      if (from && to) return "Du " + from + " au " + to;
+      if (from) return "À partir du " + from;
+      if (to) return "Jusqu'au " + to;
+      return "Toutes les dates";
+    }
+
+    function getFileDate() {
+      const now = new Date();
+
+      return [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+      ].join("-");
+    }
+
+    function getExportFilename(extension) {
+      return "FVA_preinscriptions_" + getFileDate() + "." + extension;
+    }
+
+    function csvEscape(value) {
+      let text = String(value ?? "");
+
+      if (/^[\s]*[=+\-@]/.test(text)) text = "'" + text;
+
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+
+    function downloadBlob(blob, filename) {
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    document.getElementById("csvButton").addEventListener("click", () => {
+      const rows = exportRows();
+
+      if (!rows.length) {
+        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        return;
+      }
+
+      const headings = columns.map(c => c.label);
+      const content = [headings, ...rows]
+        .map(row => row.map(csvEscape).join(";"))
+        .join("\r\n");
+
+      const blob = new Blob(["\uFEFF" + content], {
+        type: "text/csv;charset=utf-8;"
+      });
+
+      downloadBlob(blob, getExportFilename("csv"));
+      showMessage(statusBox, rows.length + " dossier(s) exporté(s) en CSV.");
+    });
+
+    document.getElementById("xlsxButton").addEventListener("click", () => {
+      const rows = exportRows();
+
+      if (!rows.length) {
+        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        return;
+      }
+
+      if (!window.XLSX) {
+        showMessage(statusBox,
+          "La bibliothèque Excel n'a pas pu être chargée. Vérifiez votre connexion Internet puis réessayez.",
+          true);
+        return;
+      }
+
+      try {
+        const workbook = XLSX.utils.book_new();
+        const data = [columns.map(c => c.label), ...rows];
+        const worksheet = XLSX.utils.aoa_to_sheet(data);
+
+        worksheet["!cols"] = [
+          { wch: 22 }, { wch: 16 }, { wch: 27 },
+          { wch: 19 }, { wch: 28 }, { wch: 30 }, { wch: 40 }
+        ];
+
+        worksheet["!autofilter"] = {
+          ref: XLSX.utils.encode_range({
+            s: { r: 0, c: 0 },
+            e: { r: rows.length, c: columns.length - 1 }
+          })
+        };
+
+        worksheet["!freeze"] = { xSplit: 0, ySplit: 1 };
+
+        XLSX.utils.book_append_sheet(workbook, worksheet, "Préinscriptions");
+        XLSX.writeFile(workbook, getExportFilename("xlsx"));
+
+        showMessage(statusBox, rows.length + " dossier(s) exporté(s) en Excel.");
+      } catch (error) {
+        showMessage(statusBox,
+          "Impossible de créer le fichier Excel : " + error.message, true);
+      }
+    });
+
+    function exportPdf() {
+      const records = getFilteredRecords();
+
+      if (!records.length) {
+        showMessage(statusBox, "Aucun dossier à exporter.", true);
+        return;
+      }
+
+      if (!window.jspdf || !window.jspdf.jsPDF) {
+        showMessage(statusBox,
+          "La bibliothèque PDF n'a pas pu être chargée. Vérifiez votre connexion Internet puis réessayez.",
+          true);
+        return;
+      }
+
+      try {
+        const { jsPDF } = window.jspdf;
+
+        const doc = new jsPDF({
+          orientation: "landscape",
+          unit: "mm",
+          format: "a4"
+        });
+
+        doc.setFont("helvetica", "bold");
+        doc.setFontSize(17);
+        doc.setTextColor(1, 71, 79);
+        doc.text("FURTHER VISION ACADEMY", 14, 16);
+
+        doc.setFontSize(12);
+        doc.setTextColor(45, 61, 64);
+        doc.text("Liste des préinscriptions", 14, 24);
+
+        doc.setFont("helvetica", "normal");
+        doc.setFontSize(9);
+        doc.text("Période : " + getPeriodLabel(), 14, 31);
+        doc.text("Dossiers : " + records.length, 14, 36);
+
+        doc.text(
+          "Édité le : " + new Intl.DateTimeFormat("fr-FR", {
+            dateStyle: "short",
+            timeStyle: "short"
+          }).format(new Date()),
+          14,
+          41
+        );
+
+        doc.autoTable({
+          startY: 47,
+          head: [columns.map(c => c.label)],
+          body: records.map(record => [
+            formatDate(record.createdAt),
+            safeText(record.type),
+            safeText(record.name),
+            safeText(record.phone),
+            safeText(record.email),
+            safeText(record.formation),
+            safeText(record.details)
+          ]),
+          theme: "grid",
+          margin: { left: 10, right: 10, bottom: 15 },
+          styles: {
+            font: "helvetica",
+            fontSize: 7,
+            cellPadding: 2.2,
+            overflow: "linebreak",
+            valign: "top",
+            lineColor: [220, 230, 232],
+            lineWidth: 0.15,
+            textColor: [36, 56, 59]
+          },
+          headStyles: {
+            fillColor: [1, 71, 79],
+            textColor: [255, 255, 255],
+            fontStyle: "bold"
+          },
+          alternateRowStyles: {
+            fillColor: [243, 248, 249]
+          },
+          columnStyles: {
+            0: { cellWidth: 27 },
+            1: { cellWidth: 20 },
+            2: { cellWidth: 36 },
+            3: { cellWidth: 27 },
+            4: { cellWidth: 37 },
+            5: { cellWidth: 38 },
+            6: { cellWidth: "auto" }
+          },
+          didDrawPage: function () {
+            const pageHeight = doc.internal.pageSize.height;
+            const pageWidth = doc.internal.pageSize.width;
+
+            doc.setFontSize(8);
+            doc.setTextColor(100, 115, 118);
+            doc.text(
+              "Further Vision Academy - Document interne",
+              10,
+              pageHeight - 6
+            );
+
+            doc.text(
+              "Page " + doc.internal.getNumberOfPages(),
+              pageWidth - 10,
+              pageHeight - 6,
+              { align: "right" }
+            );
+          }
+        });
+
+        doc.save(getExportFilename("pdf"));
+        showMessage(statusBox, records.length + " dossier(s) exporté(s) en PDF.");
+      } catch (error) {
+        showMessage(statusBox,
+          "Impossible de créer le PDF : " + error.message, true);
+      }
+    }
+
+    document.getElementById("pdfButton").addEventListener("click", exportPdf);
+
+    document.getElementById("printButton").addEventListener("click", () => {
+      const records = getFilteredRecords();
+
+      if (!records.length) {
+        showMessage(statusBox, "Aucun dossier à imprimer.", true);
+        return;
+      }
+
+      const oldTitle = document.title;
+
+      const printRows = records.map(record => {
+        const row = document.createElement("tr");
+
+        columns.forEach((column, index) => {
+          const cell = document.createElement("td");
+          const value = record[column.key];
+
+          cell.textContent = index === 0
+            ? formatDate(value)
+            : safeText(value);
+
+          if (index === 1 && value) {
+            const tag = document.createElement("span");
+            tag.className = "type-tag" +
+              (value === "Entreprise" ? " entreprise" : "");
+            tag.textContent = safeText(value);
+            cell.replaceChildren(tag);
+          }
+
+          row.appendChild(cell);
+        });
+
+        return row;
+      });
+
+      recordsBody.replaceChildren(...printRows);
+      document.title = "FVA - Liste des préinscriptions - " + getFileDate();
+
+      const restoreTable = () => {
+        renderRecords();
+        document.title = oldTitle;
+        window.removeEventListener("afterprint", restoreTable);
+      };
+
+      window.addEventListener("afterprint", restoreTable);
+      window.print();
+    });
+
+    document.getElementById("logoutButton").addEventListener("click", async () => {
+      const button = document.getElementById("logoutButton");
+      button.disabled = true;
+
+      try {
+        await api("/api/admin/logout", {
+          method: "POST",
+          body: "{}"
+        });
+      } catch (error) {
+        // Masquer l'espace privé localement même si la requête échoue.
+      } finally {
+        allRecords = [];
+        recordsBody.replaceChildren();
+        dashboard.classList.add("hidden");
+        loginPanel.classList.remove("hidden");
+        showMessage(loginMessage, "Vous êtes déconnectée.");
+        button.disabled = false;
+      }
+    });
+  </script>
+</body>
+</html>

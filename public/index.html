@@ -1,0 +1,271 @@
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#01474F">
+  <meta name="description" content="Préinscription auprès de Further Vision Academy à Pointe-Noire.">
+  <title>Préinscription | Further Vision Academy</title>
+  <link rel="icon" type="image/png" href="./assets/favicon-fva.png">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#" id="homeLink" aria-label="Accueil FVA">
+      <img src="assets/logo-fva.png" alt="Logo Further Vision Academy"
+           onerror="this.style.display='none';document.getElementById('brandFallback').style.display='block'">
+      <span id="brandFallback" class="brand-fallback">FVA</span>
+    </a>
+    <span class="brand-caption">Une école, un incubateur, un catalyseur</span>
+  </header>
+
+  <main class="page">
+    <section id="homeView" class="hero">
+      <div class="hero-copy">
+        <span class="eyebrow">FURTHER VISION ACADEMY</span>
+        <h1>Donnez un nouvel élan à votre avenir professionnel</h1>
+        <p>Effectuez gratuitement votre préinscription en moins de 2 minutes auprès de Further Vision Academy.</p>
+        <div class="hero-points">
+          <span><span class="point"></span> Un accompagnement adapté à votre projet</span>
+          <span><span class="point"></span> Une démarche simple et rapide</span>
+        </div>
+      </div>
+
+      <div class="choice-panel">
+        <h2>Votre préinscription</h2>
+        <p>Choisissez le parcours qui correspond à votre besoin.</p>
+        <button class="choice-card" type="button" data-open="individualView">
+          <span class="choice-icon" aria-hidden="true">↗</span>
+          <span class="choice-text">
+            <strong>Particulier</strong>
+            <small>Vous souhaitez suivre une formation professionnelle.</small>
+          </span>
+          <span class="choice-arrow" aria-hidden="true">→</span>
+        </button>
+        <button class="choice-card" type="button" data-open="companyView">
+          <span class="choice-icon" aria-hidden="true">▦</span>
+          <span class="choice-text">
+            <strong>Entreprise</strong>
+            <small>Vous recherchez une formation ou un service pour votre organisation.</small>
+          </span>
+          <span class="choice-arrow" aria-hidden="true">→</span>
+        </button>
+        <p class="privacy-note">Vos informations servent à traiter votre demande de préinscription.</p>
+      </div>
+    </section>
+
+    <section id="individualView" class="form-view hidden">
+      <button class="back-link" type="button" data-back>← Retour à l’accueil</button>
+      <div class="form-heading">
+        <span class="eyebrow">PRÉINSCRIPTION INDIVIDUELLE</span>
+        <h1>Construisez votre avenir professionnel</h1>
+        <p>Complétez les deux étapes ci-dessous. Les champs marqués d’un astérisque sont obligatoires.</p>
+      </div>
+
+      <div class="progress-wrap">
+        <div class="progress-label"><span id="stepLabel">Étape 1 sur 2</span><span id="progressPercent">50 %</span></div>
+        <div class="progress-track"><div id="individualProgress" class="progress-fill"></div></div>
+      </div>
+
+      <form id="individualForm" novalidate>
+        <section id="individualStep1" class="form-step">
+          <h2>Vos coordonnées</h2>
+          <div class="field">
+            <label for="fullName">Nom complet <span>*</span></label>
+            <input id="fullName" name="fullName" type="text" placeholder="Exemple : NDOUDI Sergicka" autocomplete="name" required maxlength="120">
+          </div>
+          <div class="field">
+            <label for="phone">Téléphone / WhatsApp <span>*</span></label>
+            <div class="phone-row">
+              <select id="countryCode" aria-label="Indicatif téléphonique">
+                <option value="+242" selected>🇨🇬 +242</option>
+                <option value="+243">🇨🇩 +243</option>
+                <option value="+237">🇨🇲 +237</option>
+                <option value="+241">🇬🇦 +241</option>
+                <option value="+225">🇨🇮 +225</option>
+                <option value="+221">🇸🇳 +221</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="other">Autre indicatif</option>
+              </select>
+              <input id="otherCode" type="text" class="other-code hidden" inputmode="tel" placeholder="+XXX" aria-label="Autre indicatif">
+              <input id="phone" name="phone" type="tel" inputmode="tel" autocomplete="tel-national" placeholder="06 123 45 67" required maxlength="25">
+            </div>
+            <small>Choisissez votre indicatif, puis saisissez votre numéro.</small>
+          </div>
+          <div class="field">
+            <label for="email">Adresse e-mail <span class="optional">(facultatif)</span></label>
+            <input id="email" name="email" type="email" placeholder="vous@exemple.com" autocomplete="email" maxlength="180">
+          </div>
+          <div class="form-actions">
+            <button type="button" id="nextIndividual" class="btn btn-primary">Continuer →</button>
+          </div>
+        </section>
+
+        <section id="individualStep2" class="form-step hidden">
+          <h2>Votre projet de formation</h2>
+          <div class="field">
+            <label for="trainingProgram">Formation souhaitée <span>*</span></label>
+            <select id="trainingProgram" name="trainingProgram" required>
+              <option value="">Sélectionnez une formation</option>
+              <option>Secrétariat de direction</option>
+              <option>Assistanat comptable et fiscal</option>
+              <option>Assistanat ressources humaines</option>
+              <option>Logistique et gestion de stock</option>
+              <option>Électricité bâtiment et panneaux solaires</option>
+              <option>Maintenance et réseaux informatiques</option>
+              <option>Sécurité électronique</option>
+              <option>Hygiène, sécurité et environnement</option>
+              <option>Infographie et community management</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="educationLevel">Niveau d’études <span>*</span></label>
+            <select id="educationLevel" name="educationLevel" required>
+              <option value="">Sélectionnez votre niveau</option>
+              <option>BEPC</option>
+              <option>CAP / BEP</option>
+              <option>Baccalauréat</option>
+              <option>Bac +1</option>
+              <option>Bac +2 / BTS / DUT</option>
+              <option>Licence 1 (L1)</option>
+              <option>Licence 2 (L2)</option>
+              <option>Licence 3 (L3)</option>
+              <option>Licence obtenue</option>
+              <option>Master 1 (M1)</option>
+              <option>Master 2 (M2)</option>
+              <option>Master obtenu</option>
+              <option>Doctorat / Doctorant</option>
+              <option>Doctorat obtenu</option>
+              <option>Autre niveau</option>
+            </select>
+          </div>
+          <div class="encouragement">
+            <strong>Votre avenir professionnel commence dès aujourd’hui !</strong>
+            <p>Votre projet compte. Notre équipe vous accompagnera pour déterminer les modalités de votre intégration.</p>
+          </div>
+          <div class="form-actions split-actions">
+            <button type="button" id="backIndividual" class="btn btn-secondary">← Retour</button>
+            <button type="submit" id="submitIndividual" class="btn btn-primary">Envoyer ma préinscription</button>
+          </div>
+        </section>
+        <p id="individualError" class="error-message" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <section id="companyView" class="form-view hidden">
+      <button class="back-link" type="button" data-back>← Retour à l’accueil</button>
+      <div class="form-heading">
+        <span class="eyebrow">PRÉINSCRIPTION ENTREPRISE</span>
+        <h1>Développez les compétences de vos équipes</h1>
+        <p>Présentez votre organisation et sélectionnez les domaines qui correspondent à vos besoins.</p>
+      </div>
+
+      <form id="companyForm" novalidate>
+        <section class="form-step">
+          <h2>Votre organisation</h2>
+          <div class="field">
+            <label for="companyName">Nom de l’entreprise <span>*</span></label>
+            <input id="companyName" name="companyName" required maxlength="180" placeholder="Nom de votre organisation" autocomplete="organization">
+          </div>
+          <div class="field">
+            <label for="industry">Secteur d’activité</label>
+            <input id="industry" name="industry" maxlength="150" placeholder="Ex. : commerce, industrie, services">
+          </div>
+          <div class="field">
+            <label for="contactName">Nom du contact <span>*</span></label>
+            <input id="contactName" name="contactName" required maxlength="120" placeholder="Nom et prénom du responsable" autocomplete="name">
+          </div>
+          <div class="field">
+            <label for="contactTitle">Fonction du contact</label>
+            <input id="contactTitle" name="contactTitle" maxlength="120" placeholder="Ex. : Responsable RH">
+          </div>
+          <div class="field">
+            <label for="companyPhone">Téléphone / WhatsApp <span>*</span></label>
+            <div class="phone-row">
+              <select id="companyCountryCode" aria-label="Indicatif téléphonique de l’entreprise">
+                <option value="+242" selected>🇨🇬 +242</option>
+                <option value="+243">🇨🇩 +243</option>
+                <option value="+237">🇨🇲 +237</option>
+                <option value="+241">🇬🇦 +241</option>
+                <option value="+225">🇨🇮 +225</option>
+                <option value="+221">🇸🇳 +221</option>
+                <option value="+33">🇫🇷 +33</option>
+                <option value="+1">🇺🇸 +1</option>
+                <option value="other">Autre indicatif</option>
+              </select>
+              <input id="companyOtherCode" type="text" class="other-code hidden" inputmode="tel" placeholder="+XXX" aria-label="Autre indicatif de l’entreprise">
+              <input id="companyPhone" name="phone" type="tel" inputmode="tel" placeholder="06 123 45 67" required maxlength="25">
+            </div>
+          </div>
+          <div class="field">
+            <label for="companyEmail">E-mail professionnel <span class="optional">(facultatif)</span></label>
+            <input id="companyEmail" name="email" type="email" placeholder="contact@entreprise.com" maxlength="180" autocomplete="email">
+          </div>
+        </section>
+
+        <section class="form-step">
+          <h2>Vos domaines de besoin</h2>
+          <p class="section-help">Recherchez un domaine et sélectionnez toutes les catégories pertinentes. Vous pouvez en choisir plusieurs.</p>
+          <div class="field">
+            <label for="domainSearch">Rechercher un domaine</label>
+            <input id="domainSearch" type="search" placeholder="Saisissez un mot-clé…">
+          </div>
+          <div id="domainList" class="domain-list"></div>
+
+          <div class="field">
+            <label for="customNeed">Autre besoin / formation sur mesure <span class="optional">(facultatif)</span></label>
+            <textarea id="customNeed" rows="3" maxlength="1500" placeholder="Décrivez brièvement votre besoin, si nécessaire."></textarea>
+          </div>
+          <div class="field">
+            <label>Services aux entreprises</label>
+            <div id="serviceList" class="service-list"></div>
+          </div>
+          <div class="selection-box">
+            <div class="selection-heading">
+              <strong>Vos sélections</strong>
+              <span id="selectionCount">0 sélection</span>
+            </div>
+            <div id="selectedItems" class="selected-items"><span class="muted">Aucun domaine ni service sélectionné.</span></div>
+          </div>
+        </section>
+
+        <div class="form-actions">
+          <button type="submit" id="submitCompany" class="btn btn-primary">Envoyer la demande de l’entreprise</button>
+        </div>
+        <p id="companyError" class="error-message" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <footer class="footer">
+      <strong>Further Vision Academy (FVA)</strong>
+      <span>Une école, un incubateur, un catalyseur</span>
+      <span>Pointe-Noire, République du Congo</span>
+      <div class="footer-contact">
+        <a href="tel:+242066951521">+242 06 695 15 21</a>
+        <a href="tel:+242056579515">+242 05 657 95 15</a>
+        <a href="mailto:contact@furthervisionacademy.com">contact@furthervisionacademy.com</a>
+      </div>
+      <small>© <span id="year"></span> Further Vision Academy</small>
+    </footer>
+  </main>
+
+  <div id="successModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="successTitle">
+    <div class="modal-card">
+      <div class="success-symbol" aria-hidden="true">✓</div>
+      <h2 id="successTitle">Félicitations !</h2>
+      <p>Votre préinscription a bien été enregistrée.</p>
+      <p>L’équipe FVA vous contactera par téléphone ou WhatsApp pour vous accompagner dans la suite de votre démarche.</p>
+      <strong class="success-tagline">Votre avenir professionnel commence ici !</strong>
+      <div class="modal-actions">
+        <button id="finishButton" type="button" class="btn btn-secondary">Terminer</button>
+        <button id="anotherButton" type="button" class="btn btn-primary">Préinscrire une autre personne</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
